@@ -28,31 +28,16 @@ class Elements extends Phalcon\Mvc\User\Component
     );
 
     private $_tabs = array(
-        'Invoices' => array(
-            'controller' => 'invoices',
-            'action' => 'index',
-            'any' => false
+		'Видео' => array(
+                'controller' => 'video',
+                'action' => 'index',
+				'any' => false
+            ),
+        'Статьи' => array(
+                'controller' => 'post',
+                'action' => 'index',
+				'any' => true
         ),
-        'Companies' => array(
-            'controller' => 'companies',
-            'action' => 'index',
-            'any' => true
-        ),
-        'Products' => array(
-            'controller' => 'products',
-            'action' => 'index',
-            'any' => true
-        ),
-        'Product Types' => array(
-            'controller' => 'producttypes',
-            'action' => 'index',
-            'any' => true
-        ),
-        'Your Profile' => array(
-            'controller' => 'invoices',
-            'action' => 'profile',
-            'any' => false
-        )
     );
 
     /**
