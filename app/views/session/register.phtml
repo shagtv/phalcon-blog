@@ -1,0 +1,62 @@
+<?= $this->getContent(); ?>
+
+<div class="page-header">
+    <h1>Регистрация</h1>
+</div>
+
+<form action="/session/register" method="POST" id="registerForm" class="form-horizontal" onbeforesubmit="return false;">
+    <fieldset>
+        <div class="control-group">
+            <label class="control-label" for="name">Ваше имя</label>
+            <div class="controls">
+		<input type="text" name="name" id="name" class="input-xlarge" required/>
+                <p class="help-block">(обязательное поле)</p>
+                <div class="alert" id="name_alert">
+                    <strong>Внимание!</strong> Пожалуйста, введите ваше полное имя
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="username">Логин</label>
+            <div class="controls">
+		<input type="text" name="username" id="username" class="input-xlarge" required/>
+                <p class="help-block">(обязательное поле)</p>
+                <div class="alert" id="username_alert">
+                    <strong>Внимание!</strong> Пожалуйста, введите ваш логин
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="email">Email</label>
+            <div class="controls">
+		<input type="email" name="email" id="email" class="input-xlarge" required/>
+                <p class="help-block">(обязательное поле)</p>
+                <div class="alert" id="email_alert">
+                    <strong>Внимание!</strong> Пожалуйста, введите ваш email
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="password">Пароль</label>
+            <div class="controls">
+		<input type="password" name="password" id="password" class="input-xlarge" required/>
+                <p class="help-block">(минимум 8 символов)</p>
+                <div class="alert" id="password_alert">
+                    <strong>Внимание!</strong> Пожалуйста, введите пароль
+                </div>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label" for="repeatPassword">Повторите пароль</label>
+            <div class="controls">
+		<input type="password" name="repeatPassword" id="repeatPassword" class="input-xlarge" required/>
+                <div class="alert" id="repeatPassword_alert">
+                    <strong>Внимание!</strong> Пароль не совпадает
+                </div>
+            </div>
+        </div>
+        <div class="form-actions">
+		<input type="submit" value="Регистрация" class="btn btn-primary btn-large" onclick="return SignUp.validate();"/>
+        </div>
+    </fieldset>
+</form>

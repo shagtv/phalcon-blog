@@ -1,0 +1,50 @@
+
+<?= $this->getContent();  ?>
+
+<div class="login-or-signup">
+    <div class="row">
+
+        <div class="span6">
+            <div class="page-header">
+                <h2>Авторизация</h2>
+            </div>
+		<form action="/session/start" method="POST" class="form-inline">
+                <fieldset>
+                    <div class="control-group">
+                        <label class="control-label" for="email">Логин/Email</label>
+                        <div class="controls">
+				<input type="text" id="email" name="email" size="30"  class="input-xlarge" required/>
+                        </div>
+                    </div>
+                    <div class="control-group">
+                        <label class="control-label" for="password">Пораль</label>
+                        <div class="controls">
+				<input type="password" id="password" name="password" size="30"  class="input-xlarge" required/>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+			<input type="submit" value="Войти" class="btn btn-primary btn-large"/>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+
+        <div class="span6">
+            <div class="page-header">
+                <h2?</h2>
+            </div>
+
+            <p>Create an account offers the following advantages:</p>
+            <ul>
+                <li>Create, track and export your invoices online</li>
+                <li>Gain critical insights into how your business is doing</li>
+                <li>Stay informed about promotions and special packages</li>
+            </ul>
+
+            <div class="clearfix center">
+		<a href="/session/register" class="btn btn-primary btn-large btn-success">Регистация</a>
+            </div>
+        </div>
+
+    </div>
+</div>
