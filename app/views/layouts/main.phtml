@@ -1,23 +1,22 @@
-<div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </a>
-            <a class="brand" href="/">Shagtv.net</a>
-			<?= $this->elements->getMenu(); ?>
-        </div>
-    </div>
-</div>
+<div class="wrapper">
 
-<div class="container">
-    <div class="page-content">
-		<?= $this->getContent(); ?>
-    </div>
-	<hr>
-    <footer>
-        <p>&copy; <a href="/">Shagtv.net</a> 2014</p>
-    </footer>
-</div>
+	<header class="header">
+		<a class="brand" href="/">Shagtv.net</a>
+		<?= $this->elements->getMenu(); ?>
+	</header><!-- .header-->
+
+	<div class="middle">
+		<div class="container">
+			<main class="content">
+				<?= $this->getContent(); ?>
+			</main><!-- .content -->
+		</div><!-- .container-->
+		<aside class="left-sidebar">
+			<strong>Left Sidebar:</strong> Integer velit. Vestibulum nisi nunc, accumsan ut, vehicula sit amet, porta a, mi. Nam nisl tellus, placerat eget, posuere eget, egestas eget, dui. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In elementum urna a eros. Integer iaculis. Maecenas vel elit.
+		</aside><!-- .left-sidebar -->
+	</div><!-- .middle-->
+</div><!-- .wrapper -->
+
+<footer class="footer">
+	<p>&copy; <a href="/">Shagtv.net</a> 2014</p>
+</footer><!-- .footer -->
