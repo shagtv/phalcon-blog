@@ -60,11 +60,11 @@ $(function () {
     $("div.profile .alert").hide();
 	
 	var tooltips = $( "[title]" ).tooltip();
-	$( "<button>" )
-      .text( "Отправить" )
+	$("input[type=submit],input[type=button]")
       .button()
-      .click(function() {
-        $("#contact-form").submit();
-      })
-      .insertAfter( "form" );
+      .click(function(event) {
+		  if (this.hasAttribute('action')) {
+			  location.href = this.getAttribute('action');
+		  }
+	});
 });
