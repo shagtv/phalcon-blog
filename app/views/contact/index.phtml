@@ -4,33 +4,21 @@
     <h1>Свяжитесь со мной</h1>
 </div>
 
-<p>Пишите вопросы или заявки на сотрудничество</p>
+<p>Пишите вопросы или заявки на сотрудничество.</p>
 
-<form action="/contact/send" method="POST" class="form-horizontal">
-    <fieldset>
-        <div class="control-group">
-            <label class="control-label" for="name">Имя</label>
-            <div class="controls">
-		<input type="text" id="name"  name="name" class="input-xlarge" required/>
-                <p class="help-block">(обязательное поле)</p>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="email">Email</label>
-            <div class="controls">
-		<input type="text" id="email"  name="email" class="input-xlarge" required/>
-                <p class="help-block">(обязательное поле)</p>
-            </div>
-        </div>
-        <div class="control-group">
-            <label class="control-label" for="comments">Сообщение</label>
-            <div class="controls">
-		<textarea id="comments"  name="comments" rows="5" class="input-xlarge" required></textarea>
-                <p class="help-block">(обязательное поле)</p>
-            </div>
-        </div>
-        <div class="form-actions">
-		<input type="submit" value="Отправить" class="btn btn-primary btn-large"/>
-        </div>
-    </fieldset>
+<form action="/contact/send" method="POST" id="contact-form">
+	<fieldset>
+		<div>
+			<label for="name"><strong>Имя:</strong></label>
+			<input id="name" name="name" title="Введите Ваше имя."/>
+		</div>
+		<div>
+			<label for="email"><strong>Email:</strong></label>
+			<input id="email" name="email" title="Введите адрес электронной почты."/>
+		</div>
+		<div>
+			<label for="comments"><strong>Сообщение:</strong></label>
+			<textarea id="comments" rows="6" name="comments" title="Напишите сообщение."></textarea>
+		</div>
+	</fieldset>
 </form>

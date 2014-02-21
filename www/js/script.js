@@ -55,7 +55,16 @@ var SignUp = {
     }
 }
 
-$(document).ready(function () {
+$(function () {
     $("#registerForm .alert").hide();
     $("div.profile .alert").hide();
+	
+	var tooltips = $( "[title]" ).tooltip();
+	$( "<button>" )
+      .text( "Отправить" )
+      .button()
+      .click(function() {
+        $("#contact-form").submit();
+      })
+      .insertAfter( "form" );
 });
