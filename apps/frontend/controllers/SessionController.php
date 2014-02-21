@@ -1,5 +1,8 @@
 <?php
 
+namespace Shagtv\Frontend\Controllers;
+
+use Shagtv\Frontend\Models\Users;
 use Phalcon\Tag as Tag;
 
 class SessionController extends ControllerBase
@@ -41,7 +44,7 @@ class SessionController extends ControllerBase
             $user->password = sha1($password);
             $user->name = $name;
             $user->email = $email;
-            $user->created_at = new Phalcon\Db\RawValue('now()');
+            $user->created_at = new \Phalcon\Db\RawValue('now()');
             $user->active = 'Y';
             if ($user->save() == false) {
                 foreach ($user->getMessages() as $message) {

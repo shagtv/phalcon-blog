@@ -1,6 +1,8 @@
 <?php
 
-class Contact extends Phalcon\Mvc\Model
+namespace Shagtv\Backend\Models;
+
+class Contact extends \Phalcon\Mvc\Model
 {
 
 	public $id;

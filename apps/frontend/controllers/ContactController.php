@@ -1,11 +1,15 @@
 <?php
 
+namespace Shagtv\Frontend\Controllers;
+
+use Shagtv\Frontend\Models\Contact;
+
 class ContactController extends ControllerBase
 {
     public function initialize()
     {
         $this->view->setTemplateAfter('main');
-        Phalcon\Tag::setTitle('Свяжитесь со мной');
+        \Phalcon\Tag::setTitle('Свяжитесь со мной');
         parent::initialize();
     }
 
@@ -25,7 +29,7 @@ class ContactController extends ControllerBase
             $contact->name = $name;
             $contact->email = $email;
             $contact->comments = $comments;
-            $contact->created_at = new Phalcon\Db\RawValue('now()');
+            $contact->created_at = new \Phalcon\Db\RawValue('now()');
             if ($contact->save() == false) {
                 foreach ($contact->getMessages() as $message) {
                     $this->flash->error((string) $message);

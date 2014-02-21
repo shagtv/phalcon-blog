@@ -1,9 +1,11 @@
 <?php
 
+namespace Shagtv\Backend\Models;
+
 use Phalcon\Mvc\Model\Validator\Email as EmailValidator;
 use Phalcon\Mvc\Model\Validator\Uniqueness as UniquenessValidator;
 
-class Users extends Phalcon\Mvc\Model {
+class Users extends \Phalcon\Mvc\Model {
 
 	public function validation() {
 		$this->validate(new EmailValidator(array(

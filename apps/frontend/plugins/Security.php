@@ -1,5 +1,7 @@
 <?php
 
+namespace Shagtv\Frontend\Plugins;
+
 use Phalcon\Events\Event,
 	Phalcon\Mvc\User\Plugin,
 	Phalcon\Mvc\Dispatcher,
@@ -19,14 +21,14 @@ class Security extends Plugin {
 	public function getAcl() {
 		if (!isset($this->persistent->acl)) {
 
-			$acl = new Phalcon\Acl\Adapter\Memory();
+			$acl = new \Phalcon\Acl\Adapter\Memory();
 
-			$acl->setDefaultAction(Phalcon\Acl::DENY);
+			$acl->setDefaultAction(\Phalcon\Acl::DENY);
 
 			//Register roles
 			$roles = array(
-				'users' => new Phalcon\Acl\Role('Users'),
-				'guests' => new Phalcon\Acl\Role('Guests')
+				'users' => new \Phalcon\Acl\Role('Users'),
+				'guests' => new \Phalcon\Acl\Role('Guests')
 			);
 			foreach ($roles as $role) {
 				$acl->addRole($role);
@@ -35,9 +37,9 @@ class Security extends Plugin {
 			//Private area resources
 			$privateResources = array(
 				'users' => array('index', 'new', 'edit', 'delete'),
-			);	
+			);
 			foreach ($privateResources as $resource => $actions) {
-				$acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
+				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);
 			}
 
 			//Public area resources
@@ -46,9 +48,9 @@ class Security extends Plugin {
 				'session' => array('index', 'register', 'start', 'end'),
 				'contact' => array('index'),
 				'about' => array('index'),
-			  );
+			);
 			foreach ($publicResources as $resource => $actions) {
-				$acl->addResource(new Phalcon\Acl\Resource($resource), $actions);
+				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);
 			}
 
 			//Grant access to public areas to both users and guests

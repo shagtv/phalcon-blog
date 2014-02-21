@@ -1,10 +1,12 @@
 <?php
 
-class ControllerBase extends Phalcon\Mvc\Controller {
+namespace Shagtv\Backend\Controllers;
+
+class ControllerBase extends \Phalcon\Mvc\Controller {
 
 	protected function initialize() {
 		//append the application name to the title
-		Phalcon\Tag::appendTitle(' | Shagtv.net');
+		\Phalcon\Tag::appendTitle(' | Shagtv.net');
 	}
 	
 	protected function forward($uri){

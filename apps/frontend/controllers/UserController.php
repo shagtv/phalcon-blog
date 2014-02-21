@@ -1,5 +1,7 @@
 <?php
 
+namespace Shagtv\Frontend\Controllers;
+
 class UserController extends ControllerBase {
 
 	public function initialize()
