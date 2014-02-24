@@ -46,6 +46,7 @@ class SessionController extends ControllerBase
             $user->email = $email;
             $user->created_at = new \Phalcon\Db\RawValue('now()');
             $user->active = 'Y';
+			$user->role = 'Users';
             if ($user->save() == false) {
                 foreach ($user->getMessages() as $message) {
                     $this->flash->error((string) $message);
@@ -68,7 +69,8 @@ class SessionController extends ControllerBase
     {
         $this->session->set('auth', array(
             'id' => $user->id,
-            'name' => $user->name
+            'name' => $user->name,
+			'role' => $user->role
         ));
     }
 
@@ -88,7 +90,7 @@ class SessionController extends ControllerBase
             if ($user != false) {
                 $this->_registerSession($user);
                 $this->flash->success('Welcome ' . $user->name);
-                return $this->forward('invoices/index');
+                return $this->forward('index/index');
             }
 
             $username = $this->request->getPost('email', 'alphanum');

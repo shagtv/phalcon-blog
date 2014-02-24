@@ -1,0 +1,15 @@
+<form class="form-horizontal" method="POST">
+	<table class="table table-hover">
+		<tr>
+			<th><label class="control-label" for="login">login</label></th>
+			<td><input type="text" id="login" name="login" value="<?= $user->login; ?>" placeholder="login"></td>
+		</tr>
+		<tr>
+			<th><label class="control-label" for="password">password</label></th>
+			<td><input type="text" id="password" name="password" value="<?= $user->password; ?>" placeholder="password"></td>
+		</tr>
+		<tr>
+			<td colspan="2"><button type="submit" class="btn">Save</button></td>
+		</tr>
+	</table>
+</form>

@@ -56,6 +56,13 @@ class Elements extends \Phalcon\Mvc\User\Component
                 'caption' => 'Выйти',
                 'action' => 'end'
             );
+			if ($auth['role'] == 'Admin') {
+				$this->_headerMenu['pull-left']['index'] = array(
+					'caption' => 'Администрирование',
+					'module' => 'backend',
+					'action' => 'index'
+				);
+			}
         } else {
             //unset($this->_headerMenu['pull-left']['invoices']);
         }
@@ -65,12 +72,17 @@ class Elements extends \Phalcon\Mvc\User\Component
         foreach ($this->_headerMenu as $position => $menu) {
             echo '<ul class="nav ', $position, '">';
             foreach ($menu as $controller => $option) {
-                if ($controllerName == $controller) {
+                if (!empty($option['module'])) {
+					$module = $option['module'].'/';
+				} else {
+					$module = '';
+				}
+				if ($controllerName == $controller) {
                     echo '<li class="active">';
                 } else {
                     echo '<li>';
                 }
-                echo \Phalcon\Tag::linkTo($controller.'/'.$option['action'], $option['caption']);
+                echo \Phalcon\Tag::linkTo($module.$controller.'/'.$option['action'], $option['caption']);
                 echo '</li>';
             }
             echo '</ul>';

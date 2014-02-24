@@ -20,6 +20,11 @@ class Elements extends \Phalcon\Mvc\User\Component
                 'caption' => 'Контакты',
                 'action' => 'index'
             ),
+			'index' => array(
+					'caption' => 'Администрирование',
+					'module' => 'backend',
+					'action' => 'index'
+			)
         ),
         'pull-right' => array(
             'session' => array(
@@ -30,13 +35,15 @@ class Elements extends \Phalcon\Mvc\User\Component
     );
 
     private $_tabs = array(
-		'Видео' => array(
-                'controller' => 'video',
+		'Пользователи' => array(
+                'controller' => 'user',
+				'module' => 'backend',
                 'action' => 'index',
 				'any' => false
             ),
-        'Статьи' => array(
-                'controller' => 'post',
+        'Отзывы' => array(
+                'controller' => 'contact',
+				'module' => 'backend',
                 'action' => 'index',
 				'any' => true
         ),
@@ -65,12 +72,17 @@ class Elements extends \Phalcon\Mvc\User\Component
         foreach ($this->_headerMenu as $position => $menu) {
             echo '<ul class="nav ', $position, '">';
             foreach ($menu as $controller => $option) {
-                if ($controllerName == $controller) {
+                if (!empty($option['module'])) {
+					$module = $option['module'].'/';
+				} else {
+					$module = '';
+				}
+				if ($controllerName == $controller) {
                     echo '<li class="active">';
                 } else {
                     echo '<li>';
                 }
-                echo \Phalcon\Tag::linkTo($controller.'/'.$option['action'], $option['caption']);
+                echo \Phalcon\Tag::linkTo($module.$controller.'/'.$option['action'], $option['caption']);
                 echo '</li>';
             }
             echo '</ul>';
@@ -84,12 +96,17 @@ class Elements extends \Phalcon\Mvc\User\Component
         $actionName = $this->view->getActionName();
         echo '<ul class="nav nav-tabs">';
         foreach ($this->_tabs as $caption => $option) {
+			if (!empty($option['module'])) {
+				$module = $option['module'].'/';
+			} else {
+				$module = '';
+			}
             if ($option['controller'] == $controllerName && ($option['action'] == $actionName || $option['any'])) {
                 echo '<li class="active">';
             } else {
                 echo '<li>';
             }
-            echo \Phalcon\Tag::linkTo($option['controller'].'/'.$option['action'], $caption), '<li>';
+            echo \Phalcon\Tag::linkTo($module.$option['controller'].'/'.$option['action'], $caption), '<li>';
         }
         echo '</ul>';
     }

@@ -15,7 +15,7 @@ $di->set('router', function () {
 	$router->setDefaultController("index");
 	$router->setDefaultAction("index");
 	
-	$router->add("/admin/:controller/:action", array(
+	$router->add("/backend/:controller/:action", array(
 		'module' => 'backend',
 		'controller' => ucfirst(1),
 		'action' => strtolower(2),

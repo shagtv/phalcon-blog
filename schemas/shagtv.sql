@@ -11,7 +11,7 @@ CREATE TABLE `contact` (
   `comments` text COLLATE utf8_general_ci NOT NULL,
   `created_at` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -23,19 +23,20 @@ CREATE TABLE `contact` (
 --
 
 DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) COLLATE utf8_general_ci NOT NULL,
-  `password` char(40) COLLATE utf8_general_ci NOT NULL,
-  `name` varchar(120) COLLATE utf8_general_ci NOT NULL,
-  `email` varchar(70) COLLATE utf8_general_ci NOT NULL,
-  `created_at` datetime NOT NULL,
-  `active` char(1) COLLATE utf8_spanish_ci NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`username` VARCHAR(32) NOT NULL,
+	`password` CHAR(40) NOT NULL,
+	`name` VARCHAR(120) NOT NULL,
+	`email` VARCHAR(70) NOT NULL,
+	`created_at` DATETIME NOT NULL,
+	`active` CHAR(1) NOT NULL,
+	`role` CHAR(50) NULL DEFAULT 'Users',
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB
+AUTO_INCREMENT=1;
 
 --
 -- Dumping data for table `users`

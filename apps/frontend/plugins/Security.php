@@ -27,6 +27,7 @@ class Security extends Plugin {
 
 			//Register roles
 			$roles = array(
+				'admin' => new \Phalcon\Acl\Role('Admin'),
 				'users' => new \Phalcon\Acl\Role('Users'),
 				'guests' => new \Phalcon\Acl\Role('Guests')
 			);
@@ -64,6 +65,7 @@ class Security extends Plugin {
 			foreach ($privateResources as $resource => $actions) {
 				foreach ($actions as $action) {
 					$acl->allow('Users', $resource, $action);
+					$acl->allow('Admin', $resource, $action);
 				}
 			}
 
@@ -80,10 +82,10 @@ class Security extends Plugin {
 	public function beforeDispatch(Event $event, Dispatcher $dispatcher) {
 
 		$auth = $this->session->get('auth');
-		if (!$auth) {
+		if (empty($auth['role'])) {
 			$role = 'Guests';
 		} else {
-			$role = 'Users';
+			$role = $auth['role'];
 		}
 
 		$controller = $dispatcher->getControllerName();

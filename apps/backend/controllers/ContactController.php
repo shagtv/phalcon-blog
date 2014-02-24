@@ -2,12 +2,12 @@
 
 namespace Shagtv\Backend\Controllers;
 
-class IndexController extends ControllerBase {
+class ContactController extends ControllerBase {
 
 	public function initialize()
     {
         $this->view->setTemplateAfter('main');
-        \Phalcon\Tag::setTitle('Администрирование');
+        \Phalcon\Tag::setTitle('Редактирование контактов');
         parent::initialize();
     }
 

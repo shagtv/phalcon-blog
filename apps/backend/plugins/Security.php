@@ -27,7 +27,8 @@ class Security extends Plugin {
 
 			//Register roles
 			$roles = array(
-				'admins' => new \Phalcon\Acl\Role('Admins'),
+				'admin' => new \Phalcon\Acl\Role('Admin'),
+				'users' => new \Phalcon\Acl\Role('Users'),
 				'guests' => new \Phalcon\Acl\Role('Guests')
 			);
 			foreach ($roles as $role) {
@@ -37,6 +38,8 @@ class Security extends Plugin {
 			//Private area resources
 			$privateResources = array(
 				'index' => array('index'),
+				'contact' => array('index'),
+				'user' => array('index'),
 			);
 			foreach ($privateResources as $resource => $actions) {
 				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);
@@ -44,7 +47,6 @@ class Security extends Plugin {
 
 			//Public area resources
 			$publicResources = array(
-				'index' => array('index'),
 			);
 			foreach ($publicResources as $resource => $actions) {
 				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);
@@ -60,7 +62,7 @@ class Security extends Plugin {
 			//Grant acess to private area to role Users
 			foreach ($privateResources as $resource => $actions) {
 				foreach ($actions as $action) {
-					$acl->allow('Admins', $resource, $action);
+					$acl->allow('Admin', $resource, $action);
 				}
 			}
 
@@ -77,10 +79,10 @@ class Security extends Plugin {
 	public function beforeDispatch(Event $event, Dispatcher $dispatcher) {
 
 		$auth = $this->session->get('auth');
-		if (!$auth) {
+		if (empty($auth['role'])) {
 			$role = 'Guests';
 		} else {
-			$role = 'Admins';
+			$role = $auth['role'];
 		}
 
 		$controller = $dispatcher->getControllerName();
