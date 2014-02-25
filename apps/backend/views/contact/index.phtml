@@ -1,5 +1,24 @@
 <?= $this->getContent(); ?>
 
 <div class="page-header">
-    <h1>Свяжитесь со мной</h1>
+    <h1>Отзывы</h1>
 </div>
+
+<table class="width-table">
+	<tr>
+		<th>ID</th>
+		<th>Имя</th>
+		<th>Email</th>
+		<th>Комментарий</th>
+		<th>Дата</th>
+	</tr>
+	<?php foreach ($contacts as $contact): ?>
+		<tr>
+			<td><?= $contact->id; ?></td>
+			<td><?= $contact->name; ?></td>
+			<td><?= $contact->email; ?></td>
+			<td><?= $contact->comments; ?></td>
+			<td><?= $contact->created_at; ?></td>
+		</tr>
+	<?php endforeach; ?>
+</table>

@@ -15,18 +15,41 @@ $di->set('router', function () {
 	$router->setDefaultController("index");
 	$router->setDefaultAction("index");
 	
-	$router->add("/backend/:controller/:action", array(
+	$router->add("/backend/:controller/:action/:params", array(
 		'module' => 'backend',
 		'controller' => ucfirst(1),
 		'action' => strtolower(2),
+		'params' => 3
 	));
 	
-	$router->add("/:controller/:action", array(
+	$router->add("/about/:action/:params", array(
 		'module' => 'frontend',
-		'controller' => ucfirst(1),
+		'controller' => 'about',
 		'action' => strtolower(2),
+		'params' => 3
 	));
 
+	$router->add("/index/:action/:params", array(
+		'module' => 'frontend',
+		'controller' => 'index',
+		'action' => strtolower(2),
+		'params' => 3
+	));
+	
+	$router->add("/session/:action/:params", array(
+		'module' => 'frontend',
+		'controller' => 'session',
+		'action' => strtolower(2),
+		'params' => 3
+	));
+	
+	$router->add("/contact/:action/:params", array(
+		'module' => 'frontend',
+		'controller' => 'contact',
+		'action' => strtolower(2),
+		'params' => 3
+	));	
+	
 	return $router;
 });
 

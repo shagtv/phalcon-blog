@@ -40,7 +40,9 @@ class Security extends Plugin {
 				'index' => array('index'),
 				'contact' => array('index'),
 				'user' => array('index'),
+				'video' => array('index', 'edit', 'delete'),
 			);
+
 			foreach ($privateResources as $resource => $actions) {
 				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);
 			}
@@ -48,6 +50,7 @@ class Security extends Plugin {
 			//Public area resources
 			$publicResources = array(
 			);
+
 			foreach ($publicResources as $resource => $actions) {
 				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);
 			}

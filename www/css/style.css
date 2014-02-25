@@ -152,3 +152,15 @@ fieldset .help {
 	margin-top: 20px;
 	margin-bottom: 20px;
 }
+/*backend
+-------------------------------------------------------------------*/
+.width-table {
+	width: 100%;
+}
+.backend-video-form input {
+	width: 300px;
+}
+.backend-video-form textarea {
+	width: 300px;
+	height: 50px;
+}

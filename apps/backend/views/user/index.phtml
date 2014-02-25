@@ -1,18 +1,32 @@
-<table class="table table-hover">
+<?= $this->getContent(); ?>
+
+<div class="page-header">
+    <h1>Пользователи</h1>
+</div>
+
+<table class="width-table">
 	<tr>
-		<th>id</th>
-		<th>login</th>
-		<th>password</th>
+		<th>ID</th>
+		<th>Логин</th>
+		<th>Имя</th>
+		<th>Email</th>
+		<th>Дата</th>
+		<th>Активый</th>
+		<th>Роль</th>
 		<th></th>
 	</tr>
 	<?php foreach ($users as $user): ?>
 	<tr>
 		<td><?= $user->id; ?></td>
-		<td><?= $user->login; ?></td>
-		<td><?= $user->password; ?></td>
+		<td><?= $user->username; ?></td>
+		<td><?= $user->name; ?></td>
+		<td><?= $user->email; ?></td>
+		<td><?= $user->created_at; ?></td>
+		<td><?= $user->active; ?></td>
+		<td><?= $user->role; ?></td>
 		<td>
-			<a href="/user/edit/<?= $user->login; ?>">edit</a>
-			<a href="/user/delete/<?= $user->login; ?>">delete</a>
+			<a href="/backend/user/edit/<?= $user->username; ?>">edit</a>
+			<a href="/backend/user/delete/<?= $user->username; ?>">delete</a>
 		</td>
 	</tr>
 	<?php endforeach; ?>

@@ -9,7 +9,7 @@ CREATE TABLE `contact` (
   `name` varchar(70) COLLATE utf8_general_ci NOT NULL,
   `email` varchar(70) COLLATE utf8_general_ci NOT NULL,
   `comments` text COLLATE utf8_general_ci NOT NULL,
-  `created_at` datetime DEFAULT NULL,
+  `created_at` TIMESTAMP DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -29,7 +29,7 @@ CREATE TABLE `users` (
 	`password` CHAR(40) NOT NULL,
 	`name` VARCHAR(120) NOT NULL,
 	`email` VARCHAR(70) NOT NULL,
-	`created_at` DATETIME NOT NULL,
+	`created_at` TIMESTAMP NOT NULL,
 	`active` CHAR(1) NOT NULL,
 	`role` CHAR(50) NULL DEFAULT 'Users',
 	PRIMARY KEY (`id`)
@@ -47,3 +47,15 @@ LOCK TABLES `users` WRITE;
 INSERT INTO `users` VALUES (1,'demo','c0bd96dc7ea4ec56741a4e07f6ce98012814d853','Phalcon Demo','demo@phalconphp.com','2012-04-10 20:53:03','Y');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
+
+CREATE TABLE `video` (
+	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+	`name` CHAR(255) NOT NULL,
+	`code` VARCHAR(5000) NOT NULL DEFAULT '',
+	`descr` VARCHAR(5000) NOT NULL DEFAULT '',
+	`created_at` TIMESTAMP NULL DEFAULT NULL,
+	`updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+)
+COLLATE='utf8_general_ci'
+ENGINE=InnoDB;

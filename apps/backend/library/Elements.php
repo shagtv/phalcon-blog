@@ -40,12 +40,18 @@ class Elements extends \Phalcon\Mvc\User\Component
 				'module' => 'backend',
                 'action' => 'index',
 				'any' => false
-            ),
+         ),
         'Отзывы' => array(
                 'controller' => 'contact',
 				'module' => 'backend',
                 'action' => 'index',
-				'any' => true
+				'any' => false
+        ),
+		'Видео' => array(
+                'controller' => 'video',
+				'module' => 'backend',
+                'action' => 'index',
+				'any' => false
         ),
     );
 
