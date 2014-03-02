@@ -2,6 +2,8 @@
 
 namespace Shagtv\Frontend\Controllers;
 
+use Shagtv\Frontend\Models\Video;
+
 class IndexController extends ControllerBase {
 
 	public function initialize()
@@ -12,5 +14,6 @@ class IndexController extends ControllerBase {
     }
 
 	public function indexAction() {
+		$this->view->videos = Video::find();
 	}
 }

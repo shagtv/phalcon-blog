@@ -18,4 +18,9 @@ class ControllerBase extends \Phalcon\Mvc\Controller {
     		)
     	);
     }
+	
+	protected function redirect($uri){
+    	$response = new \Phalcon\Http\Response();
+		return $response->redirect($uri);
+    }
 }

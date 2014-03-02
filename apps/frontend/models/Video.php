@@ -1,6 +1,6 @@
 <?php
 
-namespace Shagtv\Backend\Models;
+namespace Shagtv\Frontend\Models;
 
 class Video extends \Phalcon\Mvc\Model
 {

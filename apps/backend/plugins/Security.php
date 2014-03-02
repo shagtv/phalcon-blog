@@ -40,7 +40,7 @@ class Security extends Plugin {
 				'index' => array('index'),
 				'contact' => array('index'),
 				'user' => array('index'),
-				'video' => array('index', 'edit', 'delete'),
+				'video' => array('index', 'edit', 'delete', 'new'),
 			);
 
 			foreach ($privateResources as $resource => $actions) {

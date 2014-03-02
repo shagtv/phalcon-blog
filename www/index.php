@@ -25,29 +25,29 @@ $di->set('router', function () {
 	$router->add("/about/:action/:params", array(
 		'module' => 'frontend',
 		'controller' => 'about',
-		'action' => strtolower(2),
-		'params' => 3
+		'action' => strtolower(1),
+		'params' => 2
 	));
 
 	$router->add("/index/:action/:params", array(
 		'module' => 'frontend',
 		'controller' => 'index',
-		'action' => strtolower(2),
-		'params' => 3
+		'action' => strtolower(1),
+		'params' => 2
 	));
 	
 	$router->add("/session/:action/:params", array(
 		'module' => 'frontend',
 		'controller' => 'session',
-		'action' => strtolower(2),
-		'params' => 3
+		'action' => strtolower(1),
+		'params' => 2
 	));
 	
 	$router->add("/contact/:action/:params", array(
 		'module' => 'frontend',
 		'controller' => 'contact',
-		'action' => strtolower(2),
-		'params' => 3
+		'action' => strtolower(1),
+		'params' => 2
 	));	
 	
 	return $router;

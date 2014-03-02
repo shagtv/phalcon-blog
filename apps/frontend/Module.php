@@ -82,12 +82,15 @@ class Module implements ModuleDefinitionInterface {
 
 		//Setup the database service
 		$di->set('db', function() use ($config) {
-			return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
+			$db = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
 				"host" => $config->database->host,
 				"username" => $config->database->username,
 				"password" => $config->database->password,
-				"dbname" => $config->database->name
+				"dbname" => $config->database->name,
+				"charset"  => 'utf8'
 			));
+			$db->execute('SET NAMES UTF8' , array());
+			return $db;
 		});
 	}
 
