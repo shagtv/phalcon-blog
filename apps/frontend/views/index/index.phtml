@@ -1,10 +1,13 @@
 <?php foreach ($videos as $video): ?>
 <div class="page-header">
-	<h1><?= $video->name ?></h1>
+	<a href="/index/view/<?= $video->id; ?>"><h1><?= $video->name; ?></h1></a>
 </div>
 
 <?= $video->code; ?>
 
 <div><?= $video->descr; ?></div>
+
+<div>Загружено; <?= $video->created_at; ?></div>
+<hr>
 
 <?php endforeach; ?>

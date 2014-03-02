@@ -20,6 +20,7 @@ class Video extends \Phalcon\Mvc\Model
 	public function initialize()
     {
         $this->updated_at = date("Y-m-d H:s:i");
+		$this->created_at = date("Y-m-d H:s:i");
         //Skips only when updating
         $this->skipAttributesOnUpdate(array('created_at'));
     }
