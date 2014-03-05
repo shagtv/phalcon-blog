@@ -23,9 +23,7 @@ class VideoController extends ControllerBase {
 		if (!$this->view->video) {
 			$this->flash->error('Видео не найдено');
 		}
-		$tagsIterator = Tag::find(array(
-			'id_video' => $this->view->video->id
-		));
+		$tagsIterator = Tag::find("id_video = {$this->view->video->id}");
 		$tags = array();
 		foreach ($tagsIterator as $tag) {
 			$tags[] = $tag->tag;
