@@ -45,7 +45,7 @@ class Security extends Plugin {
 
 			//Public area resources
 			$publicResources = array(
-				'index' => array('index', 'view'),
+				'index' => array('index', 'view', 'tag'),
 				'session' => array('index', 'register', 'start', 'end'),
 				'contact' => array('index'),
 				'about' => array('index'),

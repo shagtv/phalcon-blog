@@ -3,6 +3,7 @@
 namespace Shagtv\Backend\Controllers;
 
 use Shagtv\Backend\Models\Video;
+use Shagtv\Backend\Models\Tag;
 
 class VideoController extends ControllerBase {
 
@@ -22,11 +23,38 @@ class VideoController extends ControllerBase {
 		if (!$this->view->video) {
 			$this->flash->error('Видео не найдено');
 		}
+		$tagsIterator = Tag::find(array(
+			'id_video' => $this->view->video->id
+		));
+		$tags = array();
+		foreach ($tagsIterator as $tag) {
+			$tags[] = $tag->tag;
+		}
+		$this->view->video->tags = implode(',', $tags);
 		if ($this->request->isPost()) {
 			$this->view->video->name = trim($_POST['name']);
 			$this->view->video->code = trim($_POST['code']);
 			$this->view->video->descr = trim($_POST['descr']);
 			$result = $this->view->video->save();
+			
+			$tags = array();
+			$requestTags = array_flip(explode(',', trim($_POST['tags'])));
+			foreach ($tagsIterator as $tag) {
+				if (empty($requestTags[$tag->tag])) {
+					$tag->delete();
+				} else {
+					unset($requestTags[$tag->tag]);
+					$tags[] = $tag->tag;
+				}
+			}
+			foreach ($requestTags as $k => $v) {
+				$tag = new Tag();
+				$tag->id_video = $this->view->video->id;
+				$tag->tag = $k;
+				$tag->create();
+				$tags[] = $tag->tag;
+			}
+			$this->view->video->tags = implode(',', $tags);
 			if (!$result) {
 				echo "save error";
 			}

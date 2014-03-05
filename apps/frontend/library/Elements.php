@@ -30,16 +30,12 @@ class Elements extends \Phalcon\Mvc\User\Component
     );
 
     private $_tabs = array(
-		'Видео' => array(
-                'controller' => 'video',
-                'action' => 'index',
-				'any' => false
-            ),
-        'Статьи' => array(
-                'controller' => 'post',
-                'action' => 'index',
-				'any' => true
-        ),
+		'php',
+		'apache',
+		'mysql',
+		'java',
+		'xml',
+		'mongoDB',
     );
 
     /**
@@ -95,13 +91,9 @@ class Elements extends \Phalcon\Mvc\User\Component
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
         echo '<ul class="nav nav-tabs">';
-        foreach ($this->_tabs as $caption => $option) {
-            if ($option['controller'] == $controllerName && ($option['action'] == $actionName || $option['any'])) {
-                echo '<li class="active">';
-            } else {
-                echo '<li>';
-            }
-            echo \Phalcon\Tag::linkTo($option['controller'].'/'.$option['action'], $caption), '<li>';
+        foreach ($this->_tabs as $option) {
+            echo '<li>';
+            echo \Phalcon\Tag::linkTo('index/tag/'.$option, $option), '<li>';
         }
         echo '</ul>';
     }

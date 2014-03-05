@@ -1,4 +1,3 @@
-<body style="font-family: monospace;">
 <?php
 	include_once("minifier.php");
 	
@@ -13,4 +12,3 @@
 	minifyJS($js);
 	minifyCSS($css);
 ?>
-</body>

@@ -13,11 +13,15 @@
 		</div>
 		<div>
 			<label for="code"><strong>Код</strong></label>
-			<textarea name="code" id="code" title="Вставьте код видео"><?= $video->code; ?></textarea>
+			<input type="text" name="code" id="code" value="<?= $video->code; ?>" title="Введите код видео">
 		</div>
 		<div>
 			<label for="descr"><strong>Описание</strong></label>
 			<textarea name="descr" id="descr" title="Введите описание видео"><?= $video->descr; ?></textarea>
+		</div>
+		<div>
+			<label for="tags"><strong>Теги</strong></label>
+			<input type="text" name="tags" id="tags" value="<?= $video->tags; ?>" title="Введите теги видео">
 		</div>
 	</fieldset>
 	<input type="submit" value="Отправить"/>

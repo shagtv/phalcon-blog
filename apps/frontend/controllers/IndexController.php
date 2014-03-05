@@ -3,6 +3,7 @@
 namespace Shagtv\Frontend\Controllers;
 
 use Shagtv\Frontend\Models\Video;
+use Shagtv\Frontend\Models\Tag;
 
 class IndexController extends ControllerBase {
 
@@ -15,6 +16,16 @@ class IndexController extends ControllerBase {
 
 	public function indexAction() {
 		$this->view->videos = Video::find();
+	}
+	
+	public function tagAction($tag) {
+		$videoIds = Tag::find("tag = '{$tag}'");
+		$videos = array();
+		foreach ($videoIds as $videoId) {
+			$videos[] = Video::findFirst($videoId->id_video);
+		}
+		$this->view->tag = $tag;
+		$this->view->videos = $videos;
 	}
 	
 	public function viewAction($id) {

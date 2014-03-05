@@ -67,4 +67,6 @@ $(function () {
 			  location.href = this.getAttribute('action');
 		  }
 	});
+	
+	$('.fancybox').fancybox();
 });
