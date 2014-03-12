@@ -49,6 +49,7 @@ class Security extends Plugin {
 				'session' => array('index', 'register', 'start', 'end'),
 				'contact' => array('index'),
 				'about' => array('index'),
+				'utilits' => array('index'),
 			);
 			foreach ($publicResources as $resource => $actions) {
 				$acl->addResource(new \Phalcon\Acl\Resource($resource), $actions);

@@ -50,6 +50,13 @@ $di->set('router', function () {
 		'params' => 2
 	));	
 	
+	$router->add("/utilits/:action/:params", array(
+		'module' => 'frontend',
+		'controller' => 'utilits',
+		'action' => strtolower(1),
+		'params' => 2
+	));	
+	
 	return $router;
 });
 

@@ -10,6 +10,8 @@ class ControllerBase extends \Phalcon\Mvc\Controller {
 	protected function initialize() {
 		//append the application name to the title
 		\Phalcon\Tag::appendTitle($this->appendTitle);
+		$this->view->description = "Обучающие видео по программированию, видеоуроки, статьи, онлайн утилиты.";
+		$this->view->keywords = "ubuntu,video,видео,обучение,php,mysql,mongodb";
 	}
 	
 	protected function forward($uri){

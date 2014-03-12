@@ -90,11 +90,21 @@ class Elements extends \Phalcon\Mvc\User\Component
     {
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
-        echo '<ul class="nav nav-tabs">';
-        foreach ($this->_tabs as $option) {
-            echo '<li>';
-            echo \Phalcon\Tag::linkTo('index/tag/'.$option, $option), '<li>';
-        }
-        echo '</ul>';
+        
+		echo '<ul class="nav nav-tabs">';
+			echo '<li><p class="tab-header">'.\Phalcon\Tag::linkTo('index/index/', 'Видео').'</p>';
+			echo '<ul class="nav nav-tabs">';
+			foreach ($this->_tabs as $option) {
+				echo '<li>';
+				echo \Phalcon\Tag::linkTo('index/tag/'.$option, $option), '<li>';
+			}
+			echo '</ul>';
+			echo '</li>';
+			echo '<li><p class="tab-header">'.\Phalcon\Tag::linkTo('utilits/index/', 'Онлайн сервисы').'</p>';
+			echo '<ul class="nav nav-tabs">';
+				echo '<li>'.\Phalcon\Tag::linkTo('utilits/index/', 'Date <=> Timestamp').'</li>';
+			echo '</ul>';
+			echo '</li>';
+		echo '</ul>';
     }
 }

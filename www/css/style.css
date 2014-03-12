@@ -108,7 +108,7 @@ li {
 	display: block;
 	float: left;
 }
-.nav>li>a {
+.nav>li a {
 	display: block;
 	float: none;
 	padding: 9px 10px 11px;
@@ -119,6 +119,13 @@ li {
 }
 .nav>li.active>a {
 	color: #000;
+}
+.nav-tabs {
+	margin-left: 10px;
+}
+.tab-header {
+	font-size: larger;
+	font-weight: bold;
 }
 .author-logo {
 	width: 300px;
