@@ -1,7 +1,5 @@
 <?php
 
-namespace Shagtv\Backend\Models;
-
 class Contact extends \Phalcon\Mvc\Model
 {
 

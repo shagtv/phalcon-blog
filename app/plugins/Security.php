@@ -1,7 +1,5 @@
 <?php
 
-namespace Shagtv\Frontend\Plugins;
-
 use Phalcon\Events\Event,
 	Phalcon\Mvc\User\Plugin,
 	Phalcon\Mvc\Dispatcher,

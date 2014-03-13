@@ -1,10 +1,5 @@
 <?php
 
-namespace Shagtv\Frontend\Controllers;
-
-use Shagtv\Frontend\Models\Video;
-use Shagtv\Frontend\Models\Tag;
-
 class IndexController extends ControllerBase {
 
 	public function initialize()

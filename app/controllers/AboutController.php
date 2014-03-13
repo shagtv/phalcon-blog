@@ -1,7 +1,5 @@
 <?php
 
-namespace Shagtv\Frontend\Controllers;
-
 class AboutController extends ControllerBase
 {
     public function initialize()

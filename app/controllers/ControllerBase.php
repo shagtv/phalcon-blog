@@ -1,7 +1,5 @@
 <?php
 
-namespace Shagtv\Frontend\Controllers;
-
 class ControllerBase extends \Phalcon\Mvc\Controller {
 
 	protected $appendTitle = ' | Shagtv.net';

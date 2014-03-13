@@ -1,7 +1,5 @@
 <?php
 
-namespace Shagtv\Backend\Library;
-
 /**
  * Elements
  *
@@ -20,11 +18,6 @@ class Elements extends \Phalcon\Mvc\User\Component
                 'caption' => 'Контакты',
                 'action' => 'index'
             ),
-			'index' => array(
-					'caption' => 'Администрирование',
-					'module' => 'backend',
-					'action' => 'index'
-			)
         ),
         'pull-right' => array(
             'session' => array(
@@ -35,24 +28,12 @@ class Elements extends \Phalcon\Mvc\User\Component
     );
 
     private $_tabs = array(
-		'Пользователи' => array(
-                'controller' => 'user',
-				'module' => 'backend',
-                'action' => 'index',
-				'any' => false
-         ),
-        'Отзывы' => array(
-                'controller' => 'contact',
-				'module' => 'backend',
-                'action' => 'index',
-				'any' => false
-        ),
-		'Видео' => array(
-                'controller' => 'video',
-				'module' => 'backend',
-                'action' => 'index',
-				'any' => false
-        ),
+		'php',
+		'apache',
+		'mysql',
+		'java',
+		'xml',
+		'mongoDB',
     );
 
     /**
@@ -100,20 +81,21 @@ class Elements extends \Phalcon\Mvc\User\Component
     {
         $controllerName = $this->view->getControllerName();
         $actionName = $this->view->getActionName();
-        echo '<ul class="nav nav-tabs">';
-        foreach ($this->_tabs as $caption => $option) {
-			if (!empty($option['module'])) {
-				$module = $option['module'].'/';
-			} else {
-				$module = '';
+        
+		echo '<ul class="nav nav-tabs">';
+			echo '<li><p class="tab-header">'.\Phalcon\Tag::linkTo('index/index/', 'Видео').'</p>';
+			echo '<ul class="nav nav-tabs">';
+			foreach ($this->_tabs as $option) {
+				echo '<li>';
+				echo \Phalcon\Tag::linkTo('index/tag/'.$option, $option), '<li>';
 			}
-            if ($option['controller'] == $controllerName && ($option['action'] == $actionName || $option['any'])) {
-                echo '<li class="active">';
-            } else {
-                echo '<li>';
-            }
-            echo \Phalcon\Tag::linkTo($module.$option['controller'].'/'.$option['action'], $caption), '<li>';
-        }
-        echo '</ul>';
+			echo '</ul>';
+			echo '</li>';
+			echo '<li><p class="tab-header">'.\Phalcon\Tag::linkTo('utilits/index/', 'Онлайн сервисы').'</p>';
+			echo '<ul class="nav nav-tabs">';
+				echo '<li>'.\Phalcon\Tag::linkTo('utilits/index/', 'Date <=> Timestamp').'</li>';
+			echo '</ul>';
+			echo '</li>';
+		echo '</ul>';
     }
 }

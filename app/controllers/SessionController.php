@@ -1,8 +1,5 @@
 <?php
 
-namespace Shagtv\Frontend\Controllers;
-
-use Shagtv\Frontend\Models\Users;
 use Phalcon\Tag as Tag;
 
 class SessionController extends ControllerBase

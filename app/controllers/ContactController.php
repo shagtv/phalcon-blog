@@ -1,9 +1,5 @@
 <?php
 
-namespace Shagtv\Frontend\Controllers;
-
-use Shagtv\Frontend\Models\Contact;
-
 class ContactController extends ControllerBase
 {
     public function initialize()

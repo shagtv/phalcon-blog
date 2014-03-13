@@ -1,13 +1,11 @@
 <?php
 
-namespace Shagtv\Backend\Controllers;
-
-class IndexController extends ControllerBase {
+class UtilitsController extends ControllerBase {
 
 	public function initialize()
     {
         $this->view->setTemplateAfter('main');
-        \Phalcon\Tag::setTitle('Администрирование');
+        \Phalcon\Tag::setTitle('Онлайн сервисы');
         parent::initialize();
     }
 
