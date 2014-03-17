@@ -10,23 +10,6 @@ class IndexController extends ControllerBase {
     }
 
 	public function indexAction() {
-		var_dump($this->dispatcher);
-		$this->view->videos = Video::find();
-	}
-	
-	public function videoAction($tag) {
-		$videoIds = Tag::find("tag = '{$tag}'");
-		$videos = array();
-		foreach ($videoIds as $videoId) {
-			$videos[] = Video::findFirst($videoId->id_video);
-		}
-		$this->view->tag = $tag;
-		$this->view->videos = $videos;
-	}
-	
-	public function viewAction($id) {
-		$this->view->video = Video::findFirst($id);
-		\Phalcon\Tag::setTitle($this->view->video->name);
-		\Phalcon\Tag::appendTitle($this->appendTitle);
+		$this->forward('video/list');
 	}
 }
