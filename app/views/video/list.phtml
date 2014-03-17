@@ -1,0 +1,29 @@
+<div class="page-header">
+    <h1>Новые видео по программированию</h1>
+</div>
+
+<?php foreach ($page->items as $video): ?>
+	<div class="page-header">
+		<a href="/video/show/<?= $video->id; ?>"><h2><?= $video->name; ?></h2></a>
+	</div>
+
+	<div>
+		<a class="fancybox" href="http://img.youtube.com/vi/<?= $video->code; ?>/maxresdefault.jpg">
+			<img alt="<?= $video->name; ?>" title="<?= $video->name; ?>" src="http://img.youtube.com/vi/<?= $video->code; ?>/0.jpg">
+		</a>
+	</div>
+
+	<div><?= $video->descr; ?></div>
+
+	<div>Загружено; <?= $video->created_at; ?></div>
+	<hr>
+<?php endforeach; ?>
+
+<?php if ($page->total_pages > 1): ?>	
+<a href="/video/list">Первая</a>
+<a href="/video/list?page=<?= $page->before; ?>">Предыдущая</a>
+<a href="/video/list?page=<?= $page->next; ?>">Следующая</a>
+<a href="/video/list?page=<?= $page->last; ?>">Последняя</a>
+
+<?php echo "Вы на странице ", $page->current, " из ", $page->total_pages; ?>
+<?php endif; ?>
