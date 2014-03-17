@@ -2,7 +2,12 @@
 
 	<header class="header">
 		<a class="brand" href="/">ShagTV</a>
-		<?= $this->elements->getMenu(); ?>
+		<div class="nav-collapse">
+			<ul class="nav pull-left">
+				<li><a href="/about/index">Об авторе</a></li>
+				<li><a href="/contact/index">Контакты</a></li>
+			</ul>
+		</div>
 	</header><!-- .header-->
 
 	<div class="middle">
@@ -12,7 +17,30 @@
 			</main><!-- .content -->
 		</div><!-- .container-->
 		<aside class="left-sidebar">
-			<?= $this->elements->getTabs(); ?>
+			<ul class="nav nav-tabs">
+				<li>
+					<p class="tab-header"><a href="/index/index/">Видео</a></p>
+					<ul class="nav nav-tabs">
+						<li><a href="/index/video/php">php</a></li>
+						<li></li><li><a href="/index/video/apache">apache</a></li>
+						<li></li><li><a href="/index/video/mysql">mysql</a></li>
+						<li></li><li><a href="/index/video/java">java</a></li>
+						<li></li><li><a href="/index/video/xml">xml</a></li>
+						<li></li><li><a href="/index/video/mongoDB">mongoDB</a></li>
+						<li></li>
+					</ul>
+				</li>
+				<li>
+					<p class="tab-header">
+						<a href="/utilits/index/">Онлайн сервисы</a>
+					</p>
+					<ul class="nav nav-tabs">
+						<li>
+							<a href="/utilits/index/">Date &lt;=&gt; Timestamp</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
 		</aside><!-- .left-sidebar -->
 	</div><!-- .middle-->
 </div><!-- .wrapper -->

@@ -10,10 +10,11 @@ class IndexController extends ControllerBase {
     }
 
 	public function indexAction() {
+		var_dump($this->dispatcher);
 		$this->view->videos = Video::find();
 	}
 	
-	public function tagAction($tag) {
+	public function videoAction($tag) {
 		$videoIds = Tag::find("tag = '{$tag}'");
 		$videos = array();
 		foreach ($videoIds as $videoId) {
