@@ -35,7 +35,7 @@ class VideoController extends ControllerBase {
 	}
 	
 	protected function deployPaginator($data) {
-		$currentPage = (int)$_GET["page"];
+		$currentPage = !empty($_GET["page"]) ? (int)$_GET["page"] : 1;
 		$paginator = new \Phalcon\Paginator\Adapter\Model(
 				array(
 					"data" => $data,
