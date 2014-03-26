@@ -12,36 +12,30 @@ class VideoController extends ControllerBase {
     }
 
 	public function listAction() {
-		$videos = Video::find();
-
+		$videos = Videos::find();
 		$this->view->page = $this->deployPaginator($videos);
 	}
 	
 	public function tagAction($tag) {
-		$videos = Video::query()
-		->join('Tag', 'Video.id = Tag.id_video')	
-		->where("Tag.tag = :tag:")
-		->bind(array("tag" => $tag))
-		->execute();
-		
+		$videos = Videos::find([['tags' => $tag]]);
 		$this->view->page = $this->deployPaginator($videos);
 		$this->view->tag = $tag;
 	}
 	
 	public function showAction($id) {
-		$this->view->video = Video::findFirst($id);
+		$this->view->video = Videos::findFirst([['name' => $id]]);
 		\Phalcon\Tag::setTitle($this->view->video->name);
 		\Phalcon\Tag::appendTitle($this->appendTitle);
 	}
 	
 	protected function deployPaginator($data) {
 		$currentPage = !empty($_GET["page"]) ? (int)$_GET["page"] : 1;
-		$paginator = new \Phalcon\Paginator\Adapter\Model(
-				array(
+		$paginator = new \Phalcon\Paginator\Adapter\NativeArray(
+				[
 					"data" => $data,
 					"limit" => $this->videoPerPage,
 					"page" => $currentPage
-				)
+				]
 		);
 
 		return $paginator->getPaginate();
