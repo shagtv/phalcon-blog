@@ -22,18 +22,14 @@ try {
 		return $session;
 	});
 
-	//Setup the database service
-	$di->set('db', function() use ($config) {
-		$db = new \Phalcon\Db\Adapter\Pdo\Mysql(array(
-			"host" => $config->database->host,
-			"username" => $config->database->username,
-			"password" => $config->database->password,
-			"dbname" => $config->database->name,
-			"charset" => 'utf8'
-		));
-		$db->execute('SET NAMES UTF8', array());
-		return $db;
-	});
+	$di->set('mongo', function() {
+		$mongo = new MongoClient();
+		return $mongo->selectDB("test");
+	}, true);
+
+	$di->set('collectionManager', function() {
+		return new \Phalcon\Mvc\Collection\Manager();
+	}, true);
 
 	//Setup the view component
 	$di->set('view', function() {

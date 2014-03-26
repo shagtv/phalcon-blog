@@ -4,12 +4,12 @@
 
 <?php foreach ($page->items as $video): ?>
 	<div class="page-header">
-		<a href="/video/show/<?= $video->id; ?>"><h2><?= $video->name; ?></h2></a>
+		<a href="/video/show/<?= $video->name; ?>"><h2><?= $video->title; ?></h2></a>
 	</div>
 
 	<div>
 		<a class="fancybox" href="http://img.youtube.com/vi/<?= $video->code; ?>/maxresdefault.jpg">
-			<img alt="<?= $video->name; ?>" title="<?= $video->name; ?>" src="http://img.youtube.com/vi/<?= $video->code; ?>/0.jpg">
+			<img alt="<?= $video->title; ?>" title="<?= $video->title; ?>" src="http://img.youtube.com/vi/<?= $video->code; ?>/0.jpg">
 		</a>
 	</div>
 
