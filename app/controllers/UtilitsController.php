@@ -11,4 +11,8 @@ class UtilitsController extends ControllerBase {
 
 	public function indexAction() {
 	}
+	
+	public function timestampAction() {
+		
+	}
 }

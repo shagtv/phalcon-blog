@@ -139,7 +139,7 @@ li {
 }
 label {
     display: inline-block; 
-	width: 7em;
+	min-width: 7em;
 }
 fieldset div {
     margin-bottom: 2em;
@@ -174,4 +174,14 @@ fieldset .help {
 .backend-video-form textarea {
 	width: 300px;
 	height: 50px;
+}
+/*converter
+-------------------------------------------------------------------*/
+#timestamp, #datetime {
+	width: 400px;
+	font-size: large;
+}
+#timestamp-converter, #timestamp-reset {
+	width: 200px;
+	font-size: large;
 }
