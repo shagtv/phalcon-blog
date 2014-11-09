@@ -1,0 +1,4 @@
+# Created by .gitignore support plugin (hsz.mobi)
+### Phalcon template
+/cache/
+/config/development/

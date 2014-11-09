@@ -88,13 +88,6 @@ try {
 		return $router;
 	});
 
-	/**
-	 * Register a user component
-	 */
-	$di->set('elements', function() {
-		return new Elements();
-	});
-
 	//Handle the request
 	$application = new \Phalcon\Mvc\Application();
 	$application->setDI($di);
